@@ -11,10 +11,16 @@
         $senha = $_POST['txtSenha'];
         $nome = $_POST['txtNome'];
         
-        $cmdSql = "INSERT INTO usuario VALUES ('$email','$senha','$nome')";
+        $cmdSql = "INSERT INTO usuario VALUES (:email,:senha,:nome)";
+        $dados = [
+            ':email' => $email,
+            ':senha' => $senha,
+            ':nome' => $nome
+        ];
 
         $cxPronta = $cx->prepare($cmdSql); 
-        if($cxPronta->execute()){
+
+        if($cxPronta->execute($dados)){
             echo'<div class="alert alert-success" role="alert">
                 <h4 class="alert-heading">Cadastro</h4>
                 <p>Sucesso ao cadastrar usuário!!!</p>
