@@ -1,3 +1,28 @@
+<?php
+  require_once 'Conexao.php';
+  if(isset($_POST['btnLogin'])){
+    $email = $_POST['txtLoginEmail'];
+    $senha = $_POST['txtLoginSenha'];
+
+    $cmdSql = 'SELECT * FROM usuario WHERE usuario.email = :email';
+
+    $cxPronta = $cx->prepare($cmdSql);
+    $dados = [':email'=>$email];
+    $cxPronta->execute($dados);
+    if($cxPronta->rowCount() > 0){
+      $usuario = $cxPronta->fetch(PDO::FETCH_OBJ);
+      if($usuario->senha == $senha){
+        echo 'OK';
+      }else{
+        echo 'Senha ERRADA';
+      }
+    }else{
+      echo 'E-mail não encontrado!!!';
+    }
+
+  }
+ 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,7 +55,9 @@
 
   <div class="container-fluid">
     <?php
-      require_once 'view/usuario_cadastro.php';
+      if(isset($_GET['cadastro'])){
+        require_once 'view/usuario_cadastro.php';
+      }
     ?>
   </div>
 

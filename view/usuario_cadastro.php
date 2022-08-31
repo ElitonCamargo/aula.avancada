@@ -1,11 +1,5 @@
 <?php
-    define('HOST','localhost');
-    define('DB','aula_avacada');
-    define('USER','root');
-    define('PASSW', '');
-    
-    $cx = new PDO('mysql:host='.HOST.';dbname='.DB, USER, PASSW);
-    
+    require_once 'Conexao.php';
     if(isset($_POST['btnCadastrar'])){
         $email = $_POST['txtEmail'];
         $senha = $_POST['txtSenha'];
