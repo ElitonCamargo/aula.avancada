@@ -1,6 +1,34 @@
 <?php
+    define('HOST','localhost');
+    define('DB','aula_avacada');
+    define('USER','root');
+    define('PASSW', '');
+    
+    $cx = new PDO('mysql:host='.HOST.';dbname='.DB, USER, PASSW);
+    
     if(isset($_POST['btnCadastrar'])){
-        var_dump($_POST);    
+        $email = $_POST['txtEmail'];
+        $senha = $_POST['txtSenha'];
+        $nome = $_POST['txtNome'];
+        
+        $cmdSql = "INSERT INTO usuario VALUES ('$email','$senha','$nome')";
+
+        $cxPronta = $cx->prepare($cmdSql); 
+        if($cxPronta->execute()){
+            echo'<div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Cadastro</h4>
+                <p>Sucesso ao cadastrar usuário!!!</p>
+            </div>';
+        }
+        else{
+            echo'<div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading">Cadastro</h4>
+                <p>Erro ao cadastrar usuário</p>
+            </div>';
+        }
+
+      
+        
     }
 ?>
 
