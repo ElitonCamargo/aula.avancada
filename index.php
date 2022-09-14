@@ -49,7 +49,12 @@
         </ul>
         <?php
         if(isset($_SESSION['user_logado'])){
-          echo 'Nome: '. $_SESSION['user_logado']->nome;
+          echo '
+            <form class="form-inline" method="POST">
+              <label for="">'.$_SESSION['user_logado']->nome.'</label>
+              <button class="btn btn-outline-primary my-2 my-sm-0" name="btnSair" type="submit">Sair</button>
+            </form>
+          ';
         }
         else{
           ?>
@@ -78,3 +83,5 @@
 </body>
 
 </html>
+
+git pull
