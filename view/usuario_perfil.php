@@ -1,5 +1,11 @@
 <?php
 $usuario = $_SESSION['user_logado'];
+require_once 'Upload.php';
+if(isset($_POST['btnImg'])){
+    $up = new Upload($_FILES['foto'],'img/');
+    $up->salvarImagem();
+}
+
 ?>
 <div class="container">
     <h2>Seja bem vindo: <?php echo $usuario->nome; ?></h2>
