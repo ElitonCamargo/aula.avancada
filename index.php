@@ -1,4 +1,7 @@
 <?php
+  session_start();
+  //session_destroy();
+
   require_once 'Conexao.php';
   if(isset($_POST['btnLogin'])){
     $email = $_POST['txtLoginEmail'];
@@ -7,21 +10,19 @@
     $cmdSql = 'SELECT * FROM usuario WHERE usuario.email = :email';
 
     $cxPronta = $cx->prepare($cmdSql);
-    $dados = [':email'=>$email];
-    $cxPronta->execute($dados);
+    $cxPronta->execute([':email'=>$email]);
     if($cxPronta->rowCount() > 0){
       $usuario = $cxPronta->fetch(PDO::FETCH_OBJ);
       if($usuario->senha == $senha){
-        echo 'OK';
+        $_SESSION['user_logado'] = $usuario;
       }else{
-        echo 'Senha ERRADA';
+        echo '<script>alert("Senha ERRADA")</script>';
       }
     }else{
-      echo 'E-mail não encontrado!!!';
+      echo '<script>alert("E-mail não encontrado!!!")</script>';      
     }
 
-  }
- 
+  }  
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -46,11 +47,21 @@
                 <a class="nav-link" href="?cadastro">Cadastro</a>
             </li>
         </ul>
-        <form class="form-inline" method="POST">
-            <input class="form-control mr-sm-2"                     name="txtLoginEmail"    type="text"     placeholder="E-mail">
-            <input class="form-control mr-sm-2"                     name="txtLoginSenha"    type="password" placeholder="Senha">
-            <button class="btn btn-outline-success my-2 my-sm-0"    name="btnLogin"         type="submit">Login</button>
-        </form>
+        <?php
+        if(isset($_SESSION['user_logado'])){
+          echo 'Nome: '. $_SESSION['user_logado']->nome;
+        }
+        else{
+          ?>
+            <form class="form-inline" method="POST">
+                <input class="form-control mr-sm-2"                     name="txtLoginEmail"    type="text"     placeholder="E-mail">
+                <input class="form-control mr-sm-2"                     name="txtLoginSenha"    type="password" placeholder="Senha">
+                <button class="btn btn-outline-success my-2 my-sm-0"    name="btnLogin"         type="submit">Login</button>
+            </form>
+          <?php
+        }
+        ?>
+        
     </nav>
 
   <div class="container-fluid">
