@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 31-Ago-2022 às 15:45
+-- Tempo de geração: 14-Set-2022 às 21:39
 -- Versão do servidor: 8.0.27
 -- versão do PHP: 7.4.26
 
@@ -35,6 +35,19 @@ CREATE TABLE IF NOT EXISTS `imagem` (
   KEY `fk_usuario_email` (`fk_usuario_email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Extraindo dados da tabela `imagem`
+--
+
+INSERT INTO `imagem` (`link`, `fk_usuario_email`) VALUES
+('img/imagenUser1663189656.jpg', 'camargoliveira@gmail.com'),
+('img/imagenUser1663189663.jpg', 'camargoliveira@gmail.com'),
+('img/imagenUser1663189669.jpg', 'camargoliveira@gmail.com'),
+('img/imagenUser1663189677.jpg', 'camargoliveira@gmail.com'),
+('img/imagenUser1663189691.jpg', 'camargoliveira@gmail.com'),
+('img/imagenUser1663189707.jpg', 'camargoliveira@gmail.com'),
+('img/imagenUser1663189750.jpg', 'camargoliveira@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +61,13 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `nome` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`email`, `senha`, `nome`) VALUES
+('camargoliveira@gmail.com', 'aluno123', 'ELITON CAMARGO de Oliveira');
 
 --
 -- Restrições para despejos de tabelas
