@@ -2,7 +2,12 @@
 $usuario = $_SESSION['user_logado'];
 ?>
 <div class="container">
-    <h1>Seja bem vindo: <?php echo $usuario->nome; ?></h1>
+    <h2>Seja bem vindo: <?php echo $usuario->nome; ?></h2>
+
+    <form method="POST" class="form-inline" enctype="multipart/form-data"> 
+        <input type="file" class="form-control" name="foto" >            
+        <button type="submit" name="btnImg" class="btn btn-primary form-control">Enviar IMG</button>
+    </form>
 
     <fieldset>
         <legend>Minha fotos</legend>
@@ -12,6 +17,6 @@ $usuario = $_SESSION['user_logado'];
                 <img class="card-img-top" src="">                
             </div> 
         </div>
-        
+
     </fieldset>
 </div>
