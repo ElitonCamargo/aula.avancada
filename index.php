@@ -82,6 +82,9 @@
       if(isset($_GET['cadastro'])){
         require_once 'view/usuario_cadastro.php';
       }
+      elseif(isset($_GET['perfil']) && isset($_SESSION['user_logado'])){
+        require_once 'view/usuario_perfil.php';
+      }
     ?>
   </div>
 
