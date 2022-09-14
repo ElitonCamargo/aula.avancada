@@ -25,9 +25,7 @@
                 <h4 class="alert-heading">Cadastro</h4>
                 <p>Erro ao cadastrar usuário</p>
             </div>';
-        }
-
-      
+        }     
         
     }
 ?>
