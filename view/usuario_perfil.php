@@ -38,22 +38,21 @@ if(isset($_POST['btnImg'])){
 
     <fieldset>
         <legend>Minha fotos</legend>
-        <?php
-            $cmdSql = "SELECT * FROM imagem WHERE imagem.fk_usuario_email = :email";
-            $cxPronta = $cx->prepare($cmdSql); 
-            if($cxPronta->execute([':email'=>$usuario->email])){
-                if($cxPronta->rowCount() > 0){
-                    $fotos = $cxPronta->fetchAll(PDO::FETCH_OBJ);
-                    foreach ($fotos as $foto) {
-                        echo'<div class="card">
-                                <img class="card-img-top" src="'.$foto->link.'">                
-                            </div>';
+        <div class="card-columns">
+            <?php
+                $cmdSql = "SELECT * FROM imagem WHERE imagem.fk_usuario_email = :email";
+                $cxPronta = $cx->prepare($cmdSql); 
+                if($cxPronta->execute([':email'=>$usuario->email])){
+                    if($cxPronta->rowCount() > 0){
+                        $fotos = $cxPronta->fetchAll(PDO::FETCH_OBJ);
+                        foreach ($fotos as $foto) {
+                            echo'<div class="card">
+                                    <img class="card-img-top" src="'.$foto->link.'">                
+                                </div>';
+                        }
                     }
                 }
-            }
-        ?>
-        <div class="card-columns">
-             
+            ?>             
         </div>
 
     </fieldset>
