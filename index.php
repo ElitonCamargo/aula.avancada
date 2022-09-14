@@ -1,6 +1,12 @@
 <?php
   session_start();
-  //session_destroy();
+  if(isset($_POST['btnSair'])){
+    session_destroy();
+    $url_server = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/';
+    ?>
+      <meta http-equiv="refresh" content="0; URL='<?php echo $url_server; ?>'"/>
+    <?php
+  }
 
   require_once 'Conexao.php';
   if(isset($_POST['btnLogin'])){
@@ -45,14 +51,16 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="?cadastro">Cadastro</a>
-            </li>
+            </li>           
         </ul>
         <?php
         if(isset($_SESSION['user_logado'])){
           echo '
             <form class="form-inline" method="POST">
-              <label for="">'.$_SESSION['user_logado']->nome.'</label>
-              <button class="btn btn-outline-primary my-2 my-sm-0" name="btnSair" type="submit">Sair</button>
+              <a href="?perfil">
+                <label for="">'.$_SESSION['user_logado']->nome.'</label>
+              </a>
+              <button class="btn btn-outline-primary mx-2  my-0" name="btnSair" type="submit">Sair</button>
             </form>
           ';
         }
@@ -83,5 +91,3 @@
 </body>
 
 </html>
-
-git pull
