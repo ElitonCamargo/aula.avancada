@@ -85,6 +85,13 @@
       elseif(isset($_GET['perfil']) && isset($_SESSION['user_logado'])){
         require_once 'view/usuario_perfil.php';
       }
+      elseif(isset($_GET['home'])){
+        require_once 'view/home.php';
+      }
+      else{
+        require_once 'view/home.php';
+      }
+      
     ?>
   </div>
 
