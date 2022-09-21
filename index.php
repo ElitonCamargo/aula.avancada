@@ -88,6 +88,9 @@
       elseif(isset($_GET['home'])){
         require_once 'view/home.php';
       }
+      elseif(isset($_GET['usuario'])){
+        require_once 'view/usuario.php';
+      }
       else{
         require_once 'view/home.php';
       }

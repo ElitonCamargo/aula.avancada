@@ -7,12 +7,15 @@
                     if($cxPronta->rowCount() > 0){
                         $usuarios = $cxPronta->fetchAll(PDO::FETCH_OBJ);
                         foreach ($usuarios as $usuario) {
-                            echo'<div class="card text-center">
+                            echo'<a href="?usuario='.$usuario->email.'">
+                                <div class="card text-center">
                                     <img class="card-img-top p-4" src="'.$usuario->link.'">
                                     <div class="card-body">
                                     <h5 class="card-title">'.$usuario->nome.'</h5>        
                                     </div>
-                                </div>';
+                                </div>                            
+                            </a>';
+                            
                         }                        
                     }
                 }
