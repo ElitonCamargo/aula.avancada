@@ -29,7 +29,7 @@ if(isset($_POST['btnImg'])){
 
 ?>
 <div class="container">
-    <h2>Seja bem vindo: <?php echo $usuario->nome; ?></h2>
+    <h4 class="text-secondary">E aí <?php echo $usuario->nome; ?>, que tal postar suas fotos favoritas?</h4 class="text-secondary">
 
     <form method="POST" class="form-inline" enctype="multipart/form-data"> 
         <input type="file" class="form-control" name="foto" >            

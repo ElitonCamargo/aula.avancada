@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 14-Set-2022 às 21:39
+-- Tempo de geração: 22-Set-2022 às 16:43
 -- Versão do servidor: 8.0.27
 -- versão do PHP: 7.4.26
 
@@ -40,13 +40,13 @@ CREATE TABLE IF NOT EXISTS `imagem` (
 --
 
 INSERT INTO `imagem` (`link`, `fk_usuario_email`) VALUES
-('img/imagenUser1663189656.jpg', 'camargoliveira@gmail.com'),
-('img/imagenUser1663189663.jpg', 'camargoliveira@gmail.com'),
-('img/imagenUser1663189669.jpg', 'camargoliveira@gmail.com'),
-('img/imagenUser1663189677.jpg', 'camargoliveira@gmail.com'),
-('img/imagenUser1663189691.jpg', 'camargoliveira@gmail.com'),
-('img/imagenUser1663189707.jpg', 'camargoliveira@gmail.com'),
-('img/imagenUser1663189750.jpg', 'camargoliveira@gmail.com');
+('img/imagenUser1663775732.jpg', 'camargoliveira@gmail.com'),
+('img/imagenUser1663775743.jpg', 'camargoliveira@gmail.com'),
+('img/imagenUser1663775751.jpg', 'camargoliveira@gmail.com'),
+('img/imagenUser1663775762.png', 'camargoliveira@gmail.com'),
+('img/imagenUser1663775827.jpg', 'marcos@gmail.com'),
+('img/imagenUser1663775833.jpg', 'marcos@gmail.com'),
+('img/imagenUser1663775840.png', 'marcos@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -59,6 +59,8 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `email` varchar(100) NOT NULL,
   `senha` varchar(100) DEFAULT NULL,
   `nome` varchar(100) DEFAULT NULL,
+  `foto` varchar(100) NOT NULL,
+  `capa` varchar(100) NOT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -66,8 +68,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`email`, `senha`, `nome`) VALUES
-('camargoliveira@gmail.com', 'aluno123', 'ELITON CAMARGO de Oliveira');
+INSERT INTO `usuario` (`email`, `senha`, `nome`, `foto`, `capa`) VALUES
+('camargoliveira@gmail.com', '12345', 'Eliton', '', ''),
+('jose@gmail.com', '12345', 'João Silva', '', ''),
+('marcos@gmail.com', '12345', 'Marcos Arruda', '', '');
 
 --
 -- Restrições para despejos de tabelas
