@@ -28,7 +28,16 @@ if(isset($_POST['btnImg'])){
 }
 
 if(isset($_POST['btnDelete'])){
-    var_dump($_POST['btnDelete']);
+    $cmdSql = 'CALL imagem_excluir(:link)';
+    $link = $_POST['btnDelete'];
+    
+    $cxPreparado = $cx->prepare($cmdSql);
+    if(!$cxPreparado->execute([':link'=>$link])){
+        echo'<div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Exclusão de img</h4>
+            <p>Erro ao deletar imagem</p>
+        </div>';
+    }
 }
 
 ?>

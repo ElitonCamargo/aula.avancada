@@ -1,3 +1,24 @@
+<fieldset>
+    <legend>Atividade</legend>
+    <ol>
+        <li>
+            Crie uma funcionalidade que permita excluir o usuário;
+        </li>
+        <li>
+            Crie uma funcionalidade que possibilite a um usuário já cadastrado adicionar uma foto de capa e uma foto de perfil;
+
+        </li>
+        <li>
+            Se possível, quando uma foto de perfil ou capara for adicionada o usuário possa escolher entre cadastrar um novo arquivo ou usar uma foto já existente;
+
+        </li>
+        <li>
+            Crie uma funcionalidade que permita a um usuário logado dar like ou deslike em uma foto.
+
+        </li>
+
+    </ol>
+</fieldset>
 <div class="card-columns mt-4">
 
             <?php
