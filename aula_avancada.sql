@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 22-Set-2022 às 16:43
+-- Tempo de geração: 20-Out-2022 às 17:02
 -- Versão do servidor: 8.0.27
 -- versão do PHP: 7.4.26
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `aula_avacada`
+-- Banco de dados: `aula_avancada`
 --
 
 -- --------------------------------------------------------
@@ -31,6 +31,7 @@ DROP TABLE IF EXISTS `imagem`;
 CREATE TABLE IF NOT EXISTS `imagem` (
   `link` varchar(100) NOT NULL,
   `fk_usuario_email` varchar(100) DEFAULT NULL,
+  `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`link`),
   KEY `fk_usuario_email` (`fk_usuario_email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -39,14 +40,16 @@ CREATE TABLE IF NOT EXISTS `imagem` (
 -- Extraindo dados da tabela `imagem`
 --
 
-INSERT INTO `imagem` (`link`, `fk_usuario_email`) VALUES
-('img/imagenUser1663775732.jpg', 'camargoliveira@gmail.com'),
-('img/imagenUser1663775743.jpg', 'camargoliveira@gmail.com'),
-('img/imagenUser1663775751.jpg', 'camargoliveira@gmail.com'),
-('img/imagenUser1663775762.png', 'camargoliveira@gmail.com'),
-('img/imagenUser1663775827.jpg', 'marcos@gmail.com'),
-('img/imagenUser1663775833.jpg', 'marcos@gmail.com'),
-('img/imagenUser1663775840.png', 'marcos@gmail.com');
+INSERT INTO `imagem` (`link`, `fk_usuario_email`, `data`) VALUES
+('img/imagenUser1663775732.jpg', 'camargoliveira@gmail.com', '2022-10-19 07:47:01'),
+('img/imagenUser1663775743.jpg', 'camargoliveira@gmail.com', '2022-10-19 07:47:01'),
+('img/imagenUser1663775751.jpg', 'camargoliveira@gmail.com', '2022-10-19 07:47:01'),
+('img/imagenUser1663775762.png', 'camargoliveira@gmail.com', '2022-10-19 07:47:01'),
+('img/imagenUser1663775827.jpg', 'marcos@gmail.com', '2022-10-19 07:47:01'),
+('img/imagenUser1663775833.jpg', 'marcos@gmail.com', '2022-10-19 07:47:01'),
+('img/imagenUser1663775840.png', 'marcos@gmail.com', '2022-10-19 07:47:01'),
+('img/imagenUser1663866057.jpg', 'camargoliveira@gmail.com', '2022-10-19 07:47:01'),
+('img/imagenUser1666285258.jpg', 'camargoliveira@gmail.com', '2022-10-20 14:00:58');
 
 -- --------------------------------------------------------
 

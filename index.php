@@ -50,14 +50,14 @@
                 <a class="nav-link" href="?home">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="?cadastro">Cadastro</a>
+                <a class="nav-link" href="?usuario_cadastro">Cadastro</a>
             </li>           
         </ul>
         <?php
         if(isset($_SESSION['user_logado'])){
           echo '
             <form class="form-inline" method="POST">
-              <a href="?perfil">
+              <a href="?usuario_perfil">
                 <label for="">'.$_SESSION['user_logado']->nome.'</label>
               </a>
               <button class="btn btn-outline-primary mx-2  my-0" name="btnSair" type="submit">Sair</button>
@@ -78,11 +78,12 @@
     </nav>
 
   <div class="container-fluid">
-    <?php
-      if(isset($_GET['cadastro'])){
+    <?php     
+
+      if(isset($_GET['usuario_cadastro'])){
         require_once 'view/usuario_cadastro.php';
       }
-      elseif(isset($_GET['perfil']) && isset($_SESSION['user_logado'])){
+      elseif(isset($_GET['usuario_perfil']) && isset($_SESSION['user_logado'])){
         require_once 'view/usuario_perfil.php';
       }
       elseif(isset($_GET['home'])){
