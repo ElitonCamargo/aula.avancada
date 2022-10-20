@@ -27,6 +27,10 @@ if(isset($_POST['btnImg'])){
         
 }
 
+if(isset($_POST['btnDelete'])){
+    var_dump($_POST['btnDelete']);
+}
+
 ?>
 <div class="container">
     <h4 class="text-secondary">E aí <?php echo $usuario->nome; ?>, que tal postar suas fotos favoritas?</h4 class="text-secondary">
@@ -47,7 +51,14 @@ if(isset($_POST['btnImg'])){
                         $fotos = $cxPronta->fetchAll(PDO::FETCH_OBJ);
                         foreach ($fotos as $foto) {
                             echo'<div class="card">
-                                    <img class="card-img-top" src="'.$foto->link.'">                
+                                    <img class="card-img-top" src="'.$foto->link.'">
+                                    <form method="post">
+                                        <button 
+                                            type="submit"
+                                            value="'.$foto->link.'"
+                                            name="btnDelete"
+                                        >DELETE</button>
+                                    </form>
                                 </div>';
                         }
                     }
